@@ -1,13 +1,12 @@
 [Unit]
-Description=exec by systemd
+Description=Minecraft Server
 After=network-online.target
 
 [Service]
-Restart=no
-Type=simple
-RemainAfterExit=yes
-ExecStart=/home/ec2-user/Repositories/setup.sh systemd run
-ExecStop=/home/ec2-user/Repositories/setup.sh systemd help
+ExecStart=/bin/bash /home/ec2-user/Repositories/sureta/setup.sh run
+WorkingDirectory=/home/ec2-user/Repositories/sureta
+Restart=always
+User=ec2-user
 
 [Install]
-WantedBy=network-online.target
+WantedBy=multi-user.target
