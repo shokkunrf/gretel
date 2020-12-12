@@ -1,0 +1,13 @@
+[Unit]
+Description=exec by systemd
+After=network-online.target
+
+[Service]
+Restart=no
+Type=simple
+RemainAfterExit=yes
+ExecStart=/home/ec2-user/Repositories/setup.sh systemd run
+ExecStop=/home/ec2-user/Repositories/setup.sh systemd help
+
+[Install]
+WantedBy=network-online.target

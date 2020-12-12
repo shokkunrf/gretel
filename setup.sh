@@ -2,6 +2,7 @@
 
 SUB_COMMAND=$1
 VERSION=$2
+SURETA_PATH=/home/ec2-user/Repositories/sureta
 
 USAGE=$(cat << DOC
 Usage: $0 [COMMAND|OPTION]
@@ -12,7 +13,7 @@ DOC
 )
 
 run() {
-  java -Xms2048M -Xmx2048M -jar ./spigot-server.jar nogui
+  java -Xms2048M -Xmx2048M -jar $SURETA_PATH/spigot-server.jar nogui
 }
 
 install() {
