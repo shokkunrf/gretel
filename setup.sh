@@ -19,13 +19,14 @@ install() {
     exit
   fi
 
+  mkdir -p $INSTALLATION_PATH
+
   # Install spigot for amazon linux 2
   # Amazon Corretto 8 (openJDK)
   sudo amazon-linux-extras enable corretto8
   sudo yum install -y java-1.8.0-amazon-corretto-devel
 
   # Set config
-  git config --global --unset core.autocrlf
   ln -s $CURRENT_PATH/src/* $INSTALLATION_PATH
 
   # Build spigot
