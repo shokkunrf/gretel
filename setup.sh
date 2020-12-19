@@ -3,7 +3,7 @@ set -e
 
 SUB_COMMAND=$1
 VERSION=$2
-CURRENT_PATH="$(dirname $0)"
+CURRENT_PATH="$(cd $(dirname $0) && pwd)"
 INSTALLATION_PATH="/home/$(whoami)/opt/spigot"
 
 USAGE=$(cat << DOC
@@ -39,6 +39,8 @@ install() {
   sudo systemctl daemon-reload
   sudo systemctl enable spigot
   cp $CURRENT_PATH/manage.sh $INSTALLATION_PATH/manage.sh
+
+  echo 'Success'
 }
 
 usage() {
