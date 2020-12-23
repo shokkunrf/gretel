@@ -17,6 +17,8 @@ Minecraft Spigot サーバを運用するためのサービス
 
 ### インストール方法
 
+- EC2 インスタンスに SSH 接続して以下を実行する
+
 ```sh
 sudo yum install -y git
 git clone https://github.com/shokkunrf/gretel.git
@@ -27,7 +29,7 @@ bash ./setup.sh install <Minecraft Version>
 ### ゲームサーバ実行方法
 
 - EC2 インスタンス起動時に自動で起動する
-- 以下で手動で起動/停止する
+- 以下で手動で起動/停止する場合、 EC2 インスタンスに SSH 接続して以下を実行する
 
 ```sh
 # start
@@ -38,9 +40,11 @@ sudo systemctl stop spigot
 
 ### ゲームサーバの移行方法
 
+- ローカルから EC2 インスタンスへ, EC2 インスタンスからローカルへサーバディレクトリをコピーする
+
 ```sh
 # import
-scp -r ./spigot-server ec2-user@<ipアドレス>:~/opt/spigot
+scp -r ./<サーバディレクトリ> ec2-user@<ipアドレス>:~/opt/spigot
 # export
-scp -r ec2-user@<ipアドレス>:~/opt/spigot ./spigot-server
+scp -r ec2-user@<ipアドレス>:~/opt/spigot ./<サーバディレクトリ>
 ```
