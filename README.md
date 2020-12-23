@@ -1,23 +1,29 @@
-# sureta
+# Gretel
 
-## Requirements
+## 動作環境(EC2)
 
-- RAM: 4GB
+- OS: Amazon Linux 2
+- Instance Type: t2.medium
+- Security Group:
+  - TCP: 22
+  - TCP: 25565
+  - UDP: 25565
 
-## How to use
+## 使い方
 
-for Amazon Linux 2
-
-### Install
+### インストール方法
 
 ```sh
 sudo yum install -y git
-git clone https://github.com/shokkunrf/sureta.git
-cd ./sureta
+git clone https://github.com/shokkunrf/gretel.git
+cd ./gretel
 bash ./setup.sh install <Minecraft Version>
 ```
 
-### Run server
+### ゲームサーバ実行方法
+
+- EC2 インスタンス起動時に自動で起動する
+- 以下で手動で起動/停止する
 
 ```sh
 # start
