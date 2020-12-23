@@ -1,27 +1,50 @@
-# sureta
+# Gretel
 
-## Requirements
+## 概要
 
-- RAM: 4GB
+Minecraft Spigot サーバを運用するためのサービス
 
-## How to use
+## 動作環境(EC2)
 
-for Amazon Linux 2
+- OS: Amazon Linux 2
+- Instance Type: t2.medium
+- Security Group:
+  - TCP: 22
+  - TCP: 25565
+  - UDP: 25565
 
-### Install
+## 使い方
+
+### インストール方法
+
+- EC2 インスタンスに SSH 接続して以下を実行する
 
 ```sh
 sudo yum install -y git
-git clone https://github.com/shokkunrf/sureta.git
-cd ./sureta
+git clone https://github.com/shokkunrf/gretel.git
+cd ./gretel
 bash ./setup.sh install <Minecraft Version>
 ```
 
-### Run server
+### ゲームサーバ実行方法
+
+- EC2 インスタンス起動時に自動で起動する
+- 以下で手動で起動/停止する場合、 EC2 インスタンスに SSH 接続して以下を実行する
 
 ```sh
 # start
 sudo systemctl start spigot
 # stop
 sudo systemctl stop spigot
+```
+
+### ゲームサーバの移行方法
+
+- ローカルから EC2 インスタンスへ, EC2 インスタンスからローカルへサーバディレクトリをコピーする
+
+```sh
+# import
+scp -r ./<サーバディレクトリ> ec2-user@<ipアドレス>:~/opt/spigot
+# export
+scp -r ec2-user@<ipアドレス>:~/opt/spigot ./<サーバディレクトリ>
 ```
