@@ -22,9 +22,8 @@ install() {
   mkdir -p $INSTALLATION_PATH
 
   # Install spigot for amazon linux 2
-  # Amazon Corretto 8 (openJDK)
-  sudo amazon-linux-extras enable corretto8
-  sudo yum install -y java-1.8.0-amazon-corretto-devel
+  # Amazon Corretto 16 (openJDK)
+  sudo yum install -y https://corretto.aws/downloads/latest/amazon-corretto-16-x64-linux-jdk.rpm
 
   # Set config
   ln -s $CURRENT_PATH/src/* $INSTALLATION_PATH
