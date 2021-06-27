@@ -26,6 +26,12 @@ cd ./gretel
 bash ./setup.sh install <Minecraft Version>
 ```
 
+- docker imageを利用して手元のマシンからEC2インスタンスをセットアップする
+
+```sh
+docker run --volume=$HOME/.ssh/<IDENTITY_FILE.pem>:/workspace/identity.pem ghcr.io/shokkunrf/gretel-provisioner:latest --minecraft <MINECRAFT_VERSION> -h <USER>@<IP_ADDRESS>
+```
+
 ### ゲームサーバ実行方法
 
 - EC2 インスタンス起動時に自動で起動する
