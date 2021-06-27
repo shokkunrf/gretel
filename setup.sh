@@ -23,8 +23,7 @@ install() {
 
   # Install spigot for amazon linux 2
   NEED_JAVA_16=`echo $VERSION | awk -F. '{if ( $1 > 1 || $2 >= 17) print "true"; else print "false";}'`
-  echo $NEED_JAVA_16
-  if [ $NEED_JAVA_16 = "true" ]; then
+  if [ $NEED_JAVA_16 = true ]; then
     # Amazon Corretto 16 (openJDK)
     sudo rpm --import https://yum.corretto.aws/corretto.key 
     sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
