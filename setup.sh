@@ -35,7 +35,7 @@ install() {
   fi
 
   # Set config
-  ln -s $CURRENT_PATH/src/* $INSTALLATION_PATH
+  ln -sf $CURRENT_PATH/src/* $INSTALLATION_PATH
 
   # Build spigot
   wget -O $CURRENT_PATH/BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar

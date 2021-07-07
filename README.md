@@ -32,6 +32,9 @@ bash ./setup.sh install <Minecraft Version>
 docker run --volume=$HOME/.ssh/<IDENTITY_FILE.pem>:/workspace/identity.pem ghcr.io/shokkunrf/gretel-provisioner:latest --minecraft <MINECRAFT_VERSION> -h <USER>@<IP_ADDRESS>
 ```
 
+Ansible が利用可能なdockerイメージを使い、自動的にセットアップを実行することが可能です。
+インストール後は「ゲームサーバ実行方法」の項にしたがってサーバーを実行してください。
+
 ### ゲームサーバ実行方法
 
 - EC2 インスタンス起動時に自動で起動する
@@ -54,3 +57,12 @@ scp -r ./<サーバディレクトリ> ec2-user@<ipアドレス>:~/opt/spigot
 # export
 scp -r ec2-user@<ipアドレス>:~/opt/spigot ./<サーバディレクトリ>
 ```
+
+### アップデート方法
+
+```sh
+bash ./setup.sh install <Minecraft Version>
+```
+
+インストール操作を再度実行することで、Spigotサーバーのアップデートをすることが可能です。
+
